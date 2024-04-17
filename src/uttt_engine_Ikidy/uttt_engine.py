@@ -1,11 +1,5 @@
 import pickle
 
-game = True
-turn = "X"
-grid = [["-" for j in range(9)] for i in range(9)]
-old_move = "55"
-first_move = True
-
 def print_board(grid):
     for i in range(0, 3 * 3, 3):
         for j in range(0, 3 * 3, 3):
@@ -69,16 +63,16 @@ def claimed_spaces(state):
 
 def is_game_over(state):
     claimed_spaces_var = claimed_spaces(state)
-    return has_won(claimed_spaces_var) or all(item != "-" for item in claimed_spaces_var) or all(item != "-" for x in grid for item in x)
+    return has_won(claimed_spaces_var) or all(item != "-" for item in claimed_spaces_var) or all(item != "-" for x in state for item in x)
 
-def get_move(state, old_move):
+def get_move(state, old_move, first_move = False):
     valid = False
     while not valid:
         move = input()
         if (len(move) == 2 
             and "0" not in move 
             and move.isdigit() 
-            and grid[int(move[0])-1][int(move[1])-1] == "-" 
+            and state[int(move[0])-1][int(move[1])-1] == "-" 
             and (claimed_spaces(state)[int(old_move[1])-1] != "-" 
                  or int(move[0]) == int(old_move[1]) 
                  or first_move)):
@@ -116,24 +110,3 @@ def make_move(state, move, player):
     next_state = pickle.loads(pickle.dumps(state, -1))  # Create a deep copy of the state
     next_state[int(move[0])-1][int(move[1])-1] = player
     return next_state
-
-if __name__ == "__main__":
-    while game:
-        move = get_move(grid, old_move)
-        old_move = move
-        grid = make_move(grid, move, turn)
-        claimed_spaces_var = claimed_spaces(grid)
-        board = int(move[1])-1
-        if has_won(grid[board]):
-            print(f"{turn} has claimed group {board + 1}")
-            for x in range(9):
-                grid[board][x] = turn
-        if has_won(claimed_spaces_var):
-            print(f"{turn} has won")
-            game = False
-        if is_tie(claimed_spaces_var):
-            print("Game is a tie")
-            game = False
-        print_board(grid)
-        first_move = False
-        turn = change_turn(turn)
