@@ -92,8 +92,8 @@ if is_game_over(grid):
   print("Game is over")
 ```
 
-## get_move(board, old_move)
-This function gets a move from a human player via input given the game board and the previous move. If this move is invalid, "Invalid move" is printed, and nothing is returned until a valid move is played. If the move is valid, that move is returned.
+## get_move(board, old_move, first_move* = False)
+This function gets a move from a human player via input given the game board, the previous move, and optionally, the first_move variable. If this move is invalid, "Invalid move" is printed, and nothing is returned until a valid move is played. If the move is valid, that move is returned.
 
 Example usage:
 ```python
