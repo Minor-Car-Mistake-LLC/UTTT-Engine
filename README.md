@@ -15,9 +15,10 @@ Functions:
 - generate_moves
 - make_move
 
-#Definitions
-Game board refers to the entire game board with 9 groups and 9 spaces inside
-Group refers to one group inside a game board, can also be referred to as a board
+# Definitions and important info
+Game board refers to the entire game board with 9 groups and 9 spaces inside\
+Group refers to one group inside a game board, can also be referred to as a board\
+Old_move is set right after setting move, and is used to determine the group in which the next player can play in
 
 ## print_board(grid)
 This function prints a given game board
@@ -119,7 +120,7 @@ grid = make_move(grid, random.choice(generate_moves(grid, old_move)), turn)
 ```
 
 ## make_move(board, move, player)
-This function returns a game board afterplaying a move.
+This function returns a game board after playing a move.
 
 Example usage:
 ```python
