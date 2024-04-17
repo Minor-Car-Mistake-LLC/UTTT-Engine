@@ -83,7 +83,7 @@ if has_won(claimed_spaces(grid)):
   game = False
 ```
 
-## is_game_over
+## is_game_over(board)
 This function returns True if the game is over (Tied or won), and False if not given a game board.
 
 Example usage:
