@@ -18,7 +18,8 @@ Functions:
 # Definitions and important info
 Game board refers to the entire game board with 9 groups and 9 spaces inside\
 Group refers to one group inside a game board, can also be referred to as a board\
-Old_move is set right after setting move, and is used to determine the group in which the next player can play in
+Old_move is set right after setting move, and is used to determine the group in which the next player can play in\
+The following examples assume `from utt-engine import *`
 
 ## print_board(grid)
 This function prints a given game board
