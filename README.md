@@ -134,6 +134,12 @@ print_board(grid)
 This is an example of how to make a game of Ultimate Tic-Tac-Toe using UTT Engine. This is the code that is executed when the library is ran.
 
 ```python
+game = True
+turn = "X"
+grid = [["-" for j in range(9)] for i in range(9)]
+old_move = "55"
+first_move = True
+
 while game:
     move = get_move(grid, old_move)
     old_move = move
